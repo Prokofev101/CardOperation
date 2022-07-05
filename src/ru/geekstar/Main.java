@@ -8,7 +8,7 @@ public class Main {
         visaCard.setDeposit(7100.00f);
         visaCard.setNumberCard("0000 0000 0000 0000");
         visaCard.setPaySystem("VISA");
-        visaCard.pay(100.50f);
+        visaCard.pay(10000.50f);
         visaCard.pay(250.00f);
         visaCard.transfer(100.00f);
 
