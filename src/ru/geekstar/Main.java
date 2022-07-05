@@ -8,7 +8,8 @@ public class Main {
         visaCard.setDeposit(7100.00f);
         visaCard.setNumberCard("0000 0000 0000 0000");
         visaCard.setPaySystem("VISA");
-        visaCard.pay(10000.50f);
+        visaCard.setCurrency('₽');
+        visaCard.pay(100.50f);
         visaCard.pay(250.00f);
         visaCard.transfer(100.00f);
 
@@ -23,6 +24,7 @@ public class Main {
         masterCard.setDeposit(5600.00f);
         masterCard.setNumberCard("1111 1111 1111 1111");
         masterCard.setPaySystem("MASTERCARD");
+        masterCard.setCurrency('$');
         masterCard.pay(50.25f);
 
         // создадим массив карт
