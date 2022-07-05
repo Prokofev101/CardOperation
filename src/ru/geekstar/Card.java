@@ -104,6 +104,13 @@ public class Card {
         // и перевести комиссию на счет банка
     }
 
+    private void depositing(float sumDepositing) {
+        // внесение денег на карту
+        deposit = deposit + sumDepositing;
+        String transaction = paySystem + " " + numberCard + ": " + " Внесено " + sumDepositing + currency + " Остаток на карте " + deposit + currency;
+        setTransactions(transaction);
+    }
+
         //Так как списание и перевод денег одинаковы, выносим общий код в отдельный метод
     private boolean withdrawal(float sum) {
         if (deposit >= sum) {
