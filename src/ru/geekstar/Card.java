@@ -8,9 +8,19 @@ public class Card {
 
     private String paySystem;
 
+    private char currency; // '₽'
+
     private int countTransactions = 0; // выведем все транзакции по карте
 
     private String[] transactions = new String[5];
+
+    public char getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(char currency) {
+        this.currency = currency;
+    }
 
     public String[] getTransactions() {
         return transactions;
@@ -58,7 +68,7 @@ public class Card {
         do {
             payStatus = withdrawal(sumPay);
             if (payStatus) { // payStatus == true
-                String transaction = paySystem + " " + numberCard + ": " + " Оплачено " + sumPay + " Остаток на карте " + deposit;
+                String transaction = paySystem + " " + numberCard + ": " + " Оплата товара " + sumPay + currency + " Остаток на карте " + deposit + currency;
                 setTransactions(transaction);
                 //System.out.println(transaction);
             }
@@ -81,7 +91,7 @@ public class Card {
         do {
             transferStatus = withdrawal(sumTransfer + comission);
             if (transferStatus) { // transferStatus == true
-                String transaction = paySystem + " " + numberCard + ": " + " Переведено " + sumTransfer + " Комиссия составила " + comission + " Остаток на карте " + deposit;
+                String transaction = paySystem + " " + numberCard + ": " + " Переведено " + sumTransfer + currency + " Комиссия составила " + comission + currency + " Остаток на карте " + deposit + currency;
                 setTransactions(transaction);
                 //System.out.println(transaction);
             }
@@ -98,7 +108,7 @@ public class Card {
             deposit = deposit - sum;
         return true;
         } else {
-            String transaction = paySystem + " " + numberCard + ": " + " Недостаточно средств на карте " + deposit;
+            String transaction = paySystem + " " + numberCard + ": " + " Недостаточно средств на карте " + deposit + currency;
             setTransactions(transaction);
             return false;
         }
