@@ -70,24 +70,26 @@ public class Card {
 
     public void transfer(float sumTransfer) {
         // рассчитать коммисию за перевод
-        float commission;
+        float comission;
         if (sumTransfer < 50000) {
-            commission = 0.0f;
+            comission = 0.0f;
         } else { // sumTransfer == 5000 || sumTransfer > 50000
-            commission = sumTransfer * 0.01f;
+            comission = sumTransfer * 0.01f;
         }
         // списать деньи с карты
         boolean transferStatus;
         do {
-            transferStatus = withdrawal(sumTransfer);
+            transferStatus = withdrawal(sumTransfer + comission);
             if (transferStatus) { // transferStatus == true
-                String transaction = paySystem + " " + numberCard + ": " + " Переведено " + sumTransfer + " Комиссия составила " + commission + " Остаток на карте " + deposit;
+                String transaction = paySystem + " " + numberCard + ": " + " Переведено " + sumTransfer + " Комиссия составила " + comission + " Остаток на карте " + deposit;
                 setTransactions(transaction);
                 //System.out.println(transaction);
             }
         }while (!transferStatus);
 
         // перевести деньги на другую карту
+
+        // и перевести комиссию на счет банка
     }
 
         //Так как списание и перевод денег одинаковы, выносим общий код в отдельный метод
